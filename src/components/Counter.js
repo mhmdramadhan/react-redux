@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { useSelector, useDispatch, connect } from 'react-redux';
 
+import { counterActions } from '../store/index'
 import classes from './Counter.module.css';
 
 // menggunakan fungsional
@@ -10,23 +11,25 @@ const Counter = () => {
   // fungsi dieksekusi oleh react redux
   // karna di index.js nya dibungkus redux jadi kita bisa manggil data store redux di store/index.js
   const counter = useSelector(state => state.counter);
+  // console.log(counter)
   const show = useSelector(state => state.showCounter);
+    // console.log(show)
 
   // mengkonekan fungsi yang ada di store/index.js 
   const incrementHandler = () => {
-    dispatch({ type: 'increment' })
+    dispatch(counterActions.increment())
   }
 
   const increaseHandler = () => {
-    dispatch({ type: 'increase', amount: 5 })
+    dispatch(counterActions.increase({amount: 5}))
   }
 
   const decrementHandler = () => {
-    dispatch({ type: 'decrement' })
+    dispatch(counterActions.decrement())
   }
 
   const toggleCounterHandler = () => {
-    dispatch({ type: 'toggle' })
+    dispatch(counterActions.toogleCounter())
   };
 
   return (
