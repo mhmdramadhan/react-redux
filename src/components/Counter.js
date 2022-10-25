@@ -10,9 +10,9 @@ const Counter = () => {
 
   // fungsi dieksekusi oleh react redux
   // karna di index.js nya dibungkus redux jadi kita bisa manggil data store redux di store/index.js
-  const counter = useSelector(state => state.counter);
+  const counter = useSelector(state => state.counter.counter);
   // console.log(counter)
-  const show = useSelector(state => state.showCounter);
+  const show = useSelector(state => state.counter.showCounter);
     // console.log(show)
 
   // mengkonekan fungsi yang ada di store/index.js 
